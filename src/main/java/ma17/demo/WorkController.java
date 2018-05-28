@@ -23,10 +23,23 @@ public class WorkController {
         return worker;
     }
 
+    @RequestMapping(value = "/office" , method = RequestMethod.DELETE)
+    public List<Worker> deleteWorker(@RequestParam(value="searchstring", defaultValue = "") String searchString) {
+
+        return office.deleteWorker(searchString);
+    }
+
+
+
     @RequestMapping(value = "/department" , method = RequestMethod.GET)
     public List<Department> getDepartments(@RequestParam(value="searchstring", defaultValue = "") String searchString) {
 
         return office.getDepartments(searchString);
+    }
+    @RequestMapping(value = "/department" , method = RequestMethod.DELETE)
+    public List<Department> deleteDepartment(@RequestParam(value="searchstring", defaultValue = "") String searchString) {
+
+        return office.deleteDepartment(searchString);
     }
 
 }
