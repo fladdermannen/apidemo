@@ -23,11 +23,12 @@ public class WorkController {
         return worker;
     }
 
-    @RequestMapping(value = "/office" , method = RequestMethod.DELETE)
-    public List<Worker> deleteWorker(@RequestParam(value="searchstring", defaultValue = "") String searchString) {
+    @RequestMapping(value = "/office/{id}" , method = RequestMethod.DELETE)
+    public List<Worker> deleteWorkerbyID(@PathVariable String id) {
 
-        return office.deleteWorker(searchString);
+        return office.deleteWorker(id);
     }
+
 
 
 
@@ -40,6 +41,11 @@ public class WorkController {
     public List<Department> deleteDepartment(@RequestParam(value="searchstring", defaultValue = "") String searchString) {
 
         return office.deleteDepartment(searchString);
+    }
+    @RequestMapping(value = "/department/{name}" , method = RequestMethod.DELETE)
+    public List<Department> deleteDepartmentByName(@PathVariable String name) {
+
+        return office.deleteDepartment(name);
     }
 
 }
